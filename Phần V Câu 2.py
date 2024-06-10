@@ -25,7 +25,18 @@ def LPMax2Var (alpha , beta , constraint ):
     x0=[]
     y0=[]
     if len(constraint)<=1:
-        print('INFINITE')
+        for i in constraint:
+                a.append(i[0])
+                b.append(i[1])
+                c.append(i[2])
+                g+=1
+        if a[0]*beta-alpha*b[0]==0:
+            if b[0]*beta<=0:
+                print('Co vo han phuong an toi uu')
+            else:
+                print(beta*c[0]/b[0])
+        else:
+            print('INFINITE')
         exit()
     if len(constraint)>=2:
         for i in constraint:
