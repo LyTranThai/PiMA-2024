@@ -97,7 +97,7 @@ def matrix(A,b):
     # Sắp xếp hệ phương trình theo đúng dạng hệ phương trình bậc thang
         if o != w:
             print(f"E({o:.0f},{w:.0f})")
-            
+        
             for k in range(n):
                 va=A[o,k]
                 A[o,k]=A[w,k]
@@ -106,6 +106,7 @@ def matrix(A,b):
                 b[o]=b[w]
                 b[w]=va
         min=n
+        bo.append(w)
     print(A)
     print(b)   
     for i in range(m):
