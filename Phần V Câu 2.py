@@ -24,20 +24,32 @@ def LPMax2Var (alpha , beta , constraint ):
     g=0
     x0=[]
     y0=[]
+    # Trường hợp 1:
     if len(constraint)<=1:
         for i in constraint:
                 a.append(i[0])
                 b.append(i[1])
                 c.append(i[2])
                 g+=1
-        if a[0]*beta-alpha*b[0]==0:
-            if b[0]*beta<=0:
+        t=float(0)
+        g=float(0)
+        if a[0]==0:
+            g=c[0]/b[0]
+        elif b[0]==0:
+            t=c[0]/a[0]
+        elif 1==1:
+            g=c[0]/b[0]
+        if a[0]*(t+a[0])+b[0]*(g+b[0])-c[0]<=0:
+            if alpha*t+beta*g<(alpha*(t+a[0])+beta*(g+b[0])):
                 print('Co vo han phuong an toi uu')
             else:
-                print(beta*c[0]/b[0])
-        else:
-            print('INFINITE')
-        exit()
+                print(alpha*t+beta*g)
+        elif a[0]*(t-a[0])+b[0]*(g-b[0])-c[0]<=0:
+            if alpha*t+beta*g<(alpha*(t-a[0])+beta*(g-b[0])):
+                print('Co vo han phuong an toi uu')
+            else:
+                print(alpha*t+beta*g)
+    #Trường hợp 2:
     if len(constraint)>=2:
         for i in constraint:
                 a.append(i[0])
@@ -64,6 +76,7 @@ def LPMax2Var (alpha , beta , constraint ):
             print('INVALID')
             exit()
         sumdegrees=0
+        #Tìm tổng số đo các góc ở đỉnh của miền nghiệm
         for q in range(len(x)):
             for j in range(len(constraint)):
                 if a[j]*x[q]+b[j]*y[q]-c[j]==0:
@@ -94,6 +107,7 @@ def LPMax2Var (alpha , beta , constraint ):
                                     degree=math.degrees(radian)
                                     sumdegrees+=degree
         # print(sumdegrees)
+        # Dựa vào số đo để nhận xét miền nghiệm đóng hay mở
         if sumdegrees==((len(x)-2)*180):             
 
             optimalVal=alpha*x[0]+beta*y[0]
@@ -128,12 +142,12 @@ def LPMax2Var (alpha , beta , constraint ):
             l=0
             q=0
             # print(dk)
+            #Xem hàm mục tiêu tiến ra vô cùng hay có giá trị tối ưu
             for l in range(len(constraint)):
                 if dk[l]==1:
                     for i in range(len(x)):
                         if a[l]*x[i]+b[l]*y[i]-c[l]==0:
                             if (x[i]!=xmax and y[i]!=ymax and alpha*x[i]+beta*y[i] != optimalVal):
-                                # print('ccc')
                                 print(optimalVal)
                                 exit()
                             else:
@@ -146,6 +160,5 @@ def LPMax2Var (alpha , beta , constraint ):
                                         return optimalVal
                                     elif 1==1:
                                         return optimalVal
-            # return optimalVal
                                 
 print(LPMax2Var (6, 25, [[3, 5, 240] , [0, 1, 12], [-1, 0, 0], [0,-1, 0]]))

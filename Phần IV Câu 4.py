@@ -1,6 +1,7 @@
 import numpy as np
 
 def matrix(A,b):
+    #Input
     A = [[float(item) for item in row] for row in A]
     for i in range(len(b)):
         b[i]=float(b[i])
@@ -24,6 +25,7 @@ def matrix(A,b):
     bo=[]
     thai=False
     c=0
+    # Phép khử Gauss
     for w in range(n-1):
         for i in range(m):
             if (i in bo)==False:
@@ -80,10 +82,10 @@ def matrix(A,b):
     y=0
     r=0
     bo=[]
-
     min=dk[0]
     o=0
     w=0
+
     for w in range(m):
         for i in range(m):
             if (i in bo)==False:
@@ -92,7 +94,7 @@ def matrix(A,b):
                     o=i
 
             bo.append(o)
-
+    # Sắp xếp hệ phương trình theo đúng dạng hệ phương trình bậc thang
         if o != w:
             print(f"E({o:.0f},{w:.0f})")
             
@@ -104,7 +106,8 @@ def matrix(A,b):
                 b[o]=b[w]
                 b[w]=va
         min=n
-        
+    print(A)
+    print(b)   
     for i in range(m):
         if dk[i]<n:
             l+=1
@@ -120,7 +123,7 @@ def matrix(A,b):
                 break
     for i in range(n):
         x.append(0)
-
+# Biện luận nghiệm
     if l<n:
         for i in range(m):
             if dk[i]>=n and b[i]!=0:
@@ -139,10 +142,7 @@ def matrix(A,b):
             for l in range(n):
                 b[pos]-=A[pos,l]*x[l]
             x[j]=round(b[pos],2)
-        print(x)
+        print('Những bộ nghiệm của hệ là:',x)
     if l>n:
-        print('Day chac chan khong phai he phuong trinh bac thang =))))')
-
-
-    
+        print('Day khong phai he phuong trinh bac thang')
 print(matrix([[2,3,1],[4,6,1],[1,5,1]],[11,19,14]))

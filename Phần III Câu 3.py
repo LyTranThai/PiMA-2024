@@ -16,6 +16,7 @@ def LPMax2Var (alpha , beta , constraint ):
     g=0
     x0=[]
     y0=[]
+    # Tìm tọa độ giao điểm của các đỉnh của miền nghiệm
     for i in constraint:
             a.append(i[0])
             b.append(i[1])

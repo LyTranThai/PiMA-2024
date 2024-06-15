@@ -23,6 +23,7 @@ def matrix(A,b):
     o=0
     bo=[]
     thai=False
+    #Đưa hệ phương trình về dạng bậc thang bằng phép khử Gauss 
     for w in range(n-1):
         for i in range(m):
             if (i in bo)==False:
@@ -83,6 +84,7 @@ def matrix(A,b):
     x=[]
     for i in range(n):
         x.append(0)
+    #Giải hệ phương trình
     if l<n:
         for i in range(m):
             if dk[i]>=n and b[i]!=0:
@@ -101,8 +103,8 @@ def matrix(A,b):
             for l in range(n):
                 b[pos]-=A[pos,l]*x[l]
             x[j]=round(b[pos],2)
-        print(x)
+        print('Những bộ nghiệm của hệ phương trình:',x)
     if l>n:
-        print('Day chac chan khong phai he phuong trinh bac thang =))))')
+        print('Day khong phai he phuong trinh bac thang')
     
 print(matrix([[2,3,1],[4,6,1],[1,5,1]],[11,19,14]))
