@@ -1,11 +1,4 @@
 import math
-# def optimize(alpha,beta):
-#     optimalVal=alpha*x[0]+beta*y[0]
-#     for q in range(len(x0)):
-#         if alpha*x[q]+beta*y[q] > optimalVal:
-#             optimalVal=alpha*x[q]+beta*y[q]
-#     return optimalVal
-    
 import sys
 def intersectTwoLine(a1, b1, c1, a2, b2, c2):
   det = a1 * b2 - a2 * b1
