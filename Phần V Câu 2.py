@@ -154,4 +154,4 @@ def LPMax2Var (alpha , beta , constraint ):
                                     elif 1==1:
                                         return optimalVal
                                 
-print(LPMax2Var (6, 25, [[3, 5, 240] , [0, 1, 12], [-1, 0, 0], [0,-1, 0]]))
+print("Giá trị tối ưu:",LPMax2Var (6, 25, [[3, 5, 240] , [0, 1, 12], [-1, 0, 0], [0, -1, 0]]))

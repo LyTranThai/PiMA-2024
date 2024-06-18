@@ -48,7 +48,7 @@ def matrix(A,b):
                 b[j]-=b0[o]*( A0[j,dk[o]]/ A0[o,dk[o]] )
                 thai=False
                 count+=1
-                print(f"T^({count:.0f}):=S({j:.0f},{o:.0f},{c:.2f})")     
+                print(f"T^({count:.0f}):= S({j+1:.0f},{o+1:.0f},{c:.2f})")     
         min=n
         for r in range(m):
             dk[r]=0
@@ -99,7 +99,7 @@ def matrix(A,b):
     # Sắp xếp hệ phương trình theo đúng dạng hệ phương trình bậc thang
         if o != w:
             count+=1
-            print(f"T^({count:.0f}):=E({o:.0f},{w:.0f})")
+            print(f"T^({count:.0f}):= E({o+1:.0f},{w+1:.0f})")
         
             for k in range(n):
                 va=A[o,k]
