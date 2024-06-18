@@ -25,6 +25,7 @@ def matrix(A,b):
     bo=[]
     thai=False
     c=0
+    count=0
     # Phép khử Gauss
     for w in range(n-1):
         for i in range(m):
@@ -46,7 +47,8 @@ def matrix(A,b):
             if thai==True:
                 b[j]-=b0[o]*( A0[j,dk[o]]/ A0[o,dk[o]] )
                 thai=False
-                print(f"S({j:.0f},{o:.0f},{c:.2f})")     
+                count+=1
+                print(f"T^({count:.0f}):=S({j:.0f},{o:.0f},{c:.2f})")     
         min=n
         for r in range(m):
             dk[r]=0
@@ -96,7 +98,8 @@ def matrix(A,b):
             bo.append(o)
     # Sắp xếp hệ phương trình theo đúng dạng hệ phương trình bậc thang
         if o != w:
-            print(f"E({o:.0f},{w:.0f})")
+            count+=1
+            print(f"T^({count:.0f}):=E({o:.0f},{w:.0f})")
         
             for k in range(n):
                 va=A[o,k]
