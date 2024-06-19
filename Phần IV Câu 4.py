@@ -110,8 +110,21 @@ def matrix(A,b):
                 b[w]=va
         min=n
         bo.append(w)
+    # In ra he phuong trinh bac thang duoi dang hai ma tran A^(k)
+    print()
+    print(f"A^({count+1:.0f}) =")
     print(A)
-    print(b)   
+    print()
+    print(f"b^({count+1:.0f}) =")
+    print("[ ", end="")
+    for i in range(len(b)):
+        if i == len(b)-1:
+            print(" ",b[i],"]")
+        elif i == 0:
+            print(b[i])
+        elif 1==1:
+            print(" ",b[i])
+    # Tinh lai he so k va l cua he phuong trinh
     for i in range(m):
         if dk[i]<n:
             l+=1
