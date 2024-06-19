@@ -47,8 +47,9 @@ def matrix(A,b):
             if thai==True:
                 b[j]-=b0[o]*( A0[j,dk[o]]/ A0[o,dk[o]] )
                 thai=False
-                count+=1
-                print(f"T^({count:.0f}):= S({j+1:.0f},{o+1:.0f},{c:.2f})")     
+                if c!=0:
+                    count+=1
+                    print(f"T^({count:.0f}):= S({j+1:.0f},{o+1:.0f},{c:.2f})")     
         min=n
         for r in range(m):
             dk[r]=0
