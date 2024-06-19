@@ -124,6 +124,7 @@ def matrix(A,b):
             print(b[i])
         elif 1==1:
             print(" ",b[i])
+    print()
     # Tinh lai he so k va l cua he phuong trinh
     for i in range(m):
         if dk[i]<n:
@@ -151,15 +152,15 @@ def matrix(A,b):
         for i in range(m):
             if dk[i]>=n and b[i]!=0:
                 print('He phuong trinh vo nghiem')
-            if dk[i]>=n and b[i]==0:
-                print('He phuong trinh co dung 1 bo nghiem')
+                exit()
         for j in range(n-1,-1,-1):
             pos=dk.index(j)
             # print(pos)
             for l in range(n):
                 b[pos]-=A[pos,l]*x[l]
             x[j]=round(b[pos],2)
-        print('Những bộ nghiệm của hệ là:',x)
+        print('Bộ nghiệm của hệ là:',x)
     if l>n:
         print('Day khong phai he phuong trinh bac thang')
+    exit()
 print(matrix([[2,3,1],[4,6,1],[1,5,1]],[11,19,14]))
